@@ -25,7 +25,9 @@ $diff = 0;
 foreach ($courses as $key => $course) {
     $min = $course;
 
-    $afterCourses = array_slice($courses, $key + 1);
+    $offset = $key + 1;
+    
+    $afterCourses = array_slice($courses, $offset);
     if (count($afterCourses)) {
         $max = max($afterCourses);
         $maxKey = array_keys($afterCourses, $max)[0];
@@ -34,7 +36,7 @@ foreach ($courses as $key => $course) {
             $diff = $newDiff;
 
             $buy = $dates[$key];
-            $sell = $dates[$maxKey];
+            $sell = $dates[$maxKey + $offset];
         }
     }
 }
