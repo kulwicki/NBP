@@ -30,7 +30,7 @@ foreach ($courses as $key => $course) {
         $max = max($afterCourses);
         $maxKey = array_keys($afterCourses, $max)[0];
 
-        if ($newDiff = ($max - $min) > $diff) {
+        if (($newDiff = ($max - $min)) > $diff) {
             $diff = $newDiff;
 
             $buy = $dates[$key];
